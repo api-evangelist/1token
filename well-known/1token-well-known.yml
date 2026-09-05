@@ -1,0 +1,170 @@
+generated: '2026-09-05'
+method: probed
+source: live probes of the named /.well-known/ path list on every 1Token host
+summary: >-
+  One real document is served, on the apex and www hosts: an RFC 9727 API Catalog
+  (application/linkset+json) at https://1token.tech/.well-known/api-catalog. It resolves the public
+  1ndex endpoint to its OpenAPI description and its markdown documentation, and it is the discovery
+  root 1Token's own llms.txt points at. Nothing else is served anywhere on any host: no security.txt
+  (so NO SecurityTxt pointer), no OIDC discovery, no OAuth metadata, no ai-plugin.json, no
+  apis.json, no AAuth resource, and no A2A agent card.
+pointer_basis: >-
+  WellKnown pointer earned on the strength of the parsed api-catalog linkset on 1token.tech and
+  www.1token.tech. SecurityTxt pointer NOT emitted — RFC 9116 is unimplemented on every host.
+false_positive_watch: >-
+  1ndex.1token.tech answers HTTP 200 with a 1,182-byte dark-mode SPA shell for EVERY /.well-known/*
+  path, including the negative control that cannot exist. Its path_echo/soft-404 control therefore
+  FAILED and every 200 on that host is recorded below as a miss, not a hit. Any future round that
+  treats a 1ndex.1token.tech /.well-known/ 200 as a served document is wrong.
+hosts:
+- host: https://1token.tech
+  path_echo_control: passed
+  documents:
+  - path: /.well-known/api-catalog
+    status: 200
+    file: 1token-api-catalog.json
+    content_type: application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog.json
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  - path: /.well-known/1token-negative-control-7f3ab91c.json
+    status: 404
+    note: negative control — correctly absent
+- host: https://www.1token.tech
+  path_echo_control: passed
+  documents:
+  - path: /.well-known/api-catalog
+    status: 200
+    file: 1token-api-catalog.json
+    note: byte-identical to the apex host document; saved once
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/1token-negative-control-7f3ab91c.json
+    status: 404
+    note: negative control — correctly absent
+- host: https://1ndex.1token.tech
+  path_echo_control: failed
+  hit_count: 0
+  soft_404_control:
+    path: /.well-known/1token-negative-control-7f3ab91c.json
+    status: 200
+    bytes: 1182
+    body: SPA shell (<!doctype html><html lang="en" class="dark">)
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    note: SPA shell, not a document — recorded as a MISS
+  - path: /.well-known/openid-configuration
+    status: 200
+    note: SPA shell, not a document — recorded as a MISS
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    note: SPA shell, not a document — recorded as a MISS
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    note: SPA shell, not a document — recorded as a MISS
+  - path: /.well-known/api-catalog
+    status: 200
+    note: SPA shell, not a document — recorded as a MISS
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    note: SPA shell, not a document — recorded as a MISS
+  - path: /.well-known/agent-card.json
+    status: 200
+    note: SPA shell, not an AgentCard — recorded as a MISS
+  - path: /.well-known/agent.json
+    status: 200
+    note: SPA shell, not an AgentCard — recorded as a MISS
+  - path: /.well-known/apis.json
+    status: 200
+    note: SPA shell, not an APIs.json — recorded as a MISS
+  - path: /apis.json
+    status: 200
+    note: SPA shell — recorded as a MISS
+  - path: /apis.yml
+    status: 200
+    note: SPA shell — recorded as a MISS
+  - path: /.well-known/aauth-resource.json
+    status: 200
+    note: SPA shell — recorded as a MISS
+- host: https://blog.1token.tech
+  path_echo_control: passed
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/1token-negative-control-7f3ab91c.json
+    status: 404
+    note: negative control — correctly absent
+a2a:
+  found: false
+  note: >-
+    No agent card on any host. The only 200s were the 1ndex SPA catch-all, which fails the negative
+    control. No a2a/ artifact and no AgentCard pointer written — search-only artifact, never derived.
+checked: '2026-09-05'

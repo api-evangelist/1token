@@ -1,0 +1,91 @@
+generated: '2026-09-05'
+method: derived
+source: openapi/1token-1ndex-openapi.yml
+summary:
+  entities: 8
+  relationships: 6
+  root: StrategyOverview
+entities:
+- name: StrategyOverview
+  role: root response
+  required: [strategy_types]
+  fields:
+  - {name: update_time, type: NanosecondTimestamp}
+  - {name: update_time_str, type: Rfc3339Timestamp}
+  - {name: platform_statistics, type: PlatformStatistics}
+  - {name: strategy_types, type: 'array<StrategyType>'}
+- name: PlatformStatistics
+  role: aggregate counters
+  fields:
+  - {name: total_investors, type: integer}
+  - {name: total_strategies, type: integer}
+  - {name: total_trading_teams, type: integer}
+- name: StrategyType
+  role: one strategy category
+  required: [type]
+  fields:
+  - {name: type, type: string, note: 'free string, e.g. DeltaNeutral — no fixed enum published'}
+  - {name: description, type: string}
+  - {name: update_time, type: NanosecondTimestamp}
+  - {name: update_time_str, type: Rfc3339Timestamp}
+  - {name: active_teams, type: integer}
+  - {name: active_strategies, type: integer}
+  - {name: summary_data, type: StrategySummary}
+  - {name: historical_time_series_data, type: 'array<HistoricalPoint>'}
+- name: StrategySummary
+  role: point-in-time summary (allOf PerformanceMetrics)
+  fields:
+  - {name: sharpe_ratio, type: number}
+  - {name: max_drawdown, type: number}
+- name: HistoricalPoint
+  role: one dated observation (allOf PerformanceMetrics)
+  fields:
+  - {name: time, type: NanosecondTimestamp}
+  - {name: time_str, type: Rfc3339Timestamp}
+- name: PerformanceMetrics
+  role: shared performance field set, composed via allOf
+  fields:
+  - {name: accum_nav, type: number}
+  - {name: accum_pnl, type: number}
+  - {name: 24h_pnl, type: number}
+  - {name: 7d_pnl, type: number}
+  - {name: 30d_pnl, type: number}
+  - {name: mtd_pnl, type: number}
+  - {name: qtd_pnl, type: number}
+  - {name: ytd_pnl, type: number}
+  - {name: 7d_ann_pnl, type: number}
+  - {name: 30d_ann_pnl, type: number}
+  - {name: mtd_ann_pnl, type: number}
+  - {name: qtd_ann_pnl, type: number}
+  - {name: itd_ann_pnl, type: number}
+  note: >-
+    Raw numeric values as returned by 1ndex. The contract explicitly declines to define rounding,
+    percentage or sign conventions, so a consumer must not assume a scale.
+- name: NanosecondTimestamp
+  role: scalar
+  type: integer(int64)
+  note: 19-digit Unix nanoseconds; exceeds JavaScript Number.MAX_SAFE_INTEGER.
+- name: Rfc3339Timestamp
+  role: scalar
+  type: string(date-time)
+  note: The precision-safe companion field for every nanosecond timestamp.
+relationships:
+- {from: StrategyOverview, to: PlatformStatistics, kind: has_one, via: platform_statistics}
+- {from: StrategyOverview, to: StrategyType, kind: has_many, via: strategy_types}
+- {from: StrategyType, to: StrategySummary, kind: has_one, via: summary_data}
+- {from: StrategyType, to: HistoricalPoint, kind: has_many, via: historical_time_series_data}
+- {from: StrategySummary, to: PerformanceMetrics, kind: composes, via: allOf}
+- {from: HistoricalPoint, to: PerformanceMetrics, kind: composes, via: allOf}
+identifiers:
+  detail: >-
+    No opaque object ids and no id-prefix scheme. The only natural key is StrategyType.type, a free
+    string; there is no per-strategy, per-team or per-investor identifier on the public surface,
+    because the contract deliberately exposes aggregates only.
+observed_shape:
+  url: https://1ndex.1token.tech/api/v1/public/strategy-overview?strategy_type=DeltaNeutral
+  http_status: 200
+  checked: '2026-09-05'
+  note: >-
+    Live response matched the published schema; platform_statistics returned total_investors,
+    total_strategies and total_trading_teams, and historical points carried both time and time_str.
+    Historical series begin 2019-05-02.

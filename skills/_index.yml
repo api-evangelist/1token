@@ -1,0 +1,16 @@
+generated: '2026-09-05'
+method: generated
+source: openapi/1token-1ndex-openapi.yml
+skills:
+- file: 1token-strategy-overview.md
+  name: 1Token 1ndex strategy overview
+  description: >-
+    Read the aggregate 1ndex institutional crypto strategy overview safely — anonymous access, the
+    nanosecond-timestamp trap, the custom error envelope, and the provider's stated fair-use and
+    no-SLA boundary.
+  api: openapi/1token-1ndex-openapi.yml
+  operations: [getPublicStrategyOverview]
+note: >-
+  One skill because the provider publishes one operation. Every operationId referenced above was
+  verified against openapi/1token-1ndex-openapi.yml; nothing was invented. Additional skills are not
+  possible until 1Token publishes a CAM interface — that documentation is behind a customer login.

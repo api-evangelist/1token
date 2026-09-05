@@ -64,5 +64,43 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-1Token is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://equityzen.com/company/1token
+1Token builds institutional digital asset infrastructure for crypto funds, fund-of-funds, prime
+brokers, lenders, fund platforms, fund administrators and auditors. Its main platform, **1Token
+CAM**, covers post-trade portfolio management, real-time risk (PnL, exposure, Greeks, collateral,
+alerts, stress testing, VaR), exchange/custody/wallet data collection and trade reconciliation,
+performance intelligence and verification, and investor-ready analysis and reporting across 84 CeFi
+venues, 164 DeFi chains and 4,290 DeFi protocols. A sister platform, **1Token 1ndex**, is an
+institutional crypto strategy discovery service for allocators and trading teams.
+
+## Public API surface
+
+1Token publishes exactly one supported public API, and says so plainly in its own `llms.txt`:
+
+- **1ndex Public Strategy Overview API** — one anonymous, read-only `GET` returning aggregate
+  strategy statistics and historical performance. Described by a first-party **OpenAPI 3.1.1**
+  document and discoverable through an **RFC 9727 API Catalog** at the domain root.
+  - API Catalog — <https://1token.tech/.well-known/api-catalog>
+  - OpenAPI — <https://1token.tech/api/1ndex/v1/openapi.json>
+  - Documentation — <https://1token.tech/api/1ndex/v1/README.md>
+  - Base URL — `https://1ndex.1token.tech/api/v1`
+
+The CAM product interfaces are documented behind a customer login at `/cam-docs`, and the published
+support boundary excludes customer-specific data, write operations, CAM interfaces and third-party
+APIs 1Token consumes.
+
+## What this profile records
+
+- `openapi/` — the provider's verbatim OpenAPI 3.1.1 plus a YAML rendition
+- `well-known/` — the served RFC 9727 API Catalog, and the recorded absence of everything else
+- `llms/` — the provider's own `llms.txt`, saved verbatim
+- `authentication/`, `conventions/`, `errors/`, `data-model/`, `lifecycle/`, `rate-limits/`,
+  `plans/`, `conformance/`, `security/`, `packages/`, `changelog/`, `skills/`, `overlays/`,
+  `agentic-access/`, `mcp/`
+
+Notable findings: no published rate limit and no SLA (both explicitly disclaimed by the provider),
+no pricing page, no status page, no A2A agent card, no MCP server, a stale product changelog whose
+last entry is December 2023, and a single first-party Python SDK on PyPI last released 2021-02-01
+whose source repository now returns 404.
+
+- Company site: <https://1token.tech/>
+- Secondary-market listing: <https://equityzen.com/company/1token>

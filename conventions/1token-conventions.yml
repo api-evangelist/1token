@@ -1,0 +1,102 @@
+generated: '2026-09-05'
+method: searched
+source: https://1token.tech/api/1ndex/v1/README.md
+derived_from: openapi/1token-1ndex-openapi.yml
+summary: >-
+  The public 1Token surface is a single anonymous, read-only GET. That makes most runtime-semantics
+  dimensions genuinely not-applicable rather than absent, and the two that do apply — timestamp
+  precision and the error envelope — are documented unusually precisely for a one-operation API.
+authentication:
+  style: none
+  detail: Anonymous. See authentication/1token-authentication.yml.
+versioning:
+  scheme: uri-path
+  current: v1
+  evidence: 'servers[0].url https://1ndex.1token.tech/api/v1; docs titled "... API v1"'
+  docs: https://1token.tech/api/1ndex/v1/README.md
+  note: No published version-support or deprecation policy. See lifecycle/1token-lifecycle.yml.
+pagination:
+  style: none
+  detail: >-
+    No pagination. The single operation returns the full aggregate document; the documented way to
+    limit response size is the optional start_time/end_time history window and the strategy_type
+    filter.
+  params: [start_time, end_time, strategy_type]
+filtering:
+  params:
+  - name: start_time
+    type: integer(int64)
+    detail: Start of the requested history window, Unix timestamp in NANOSECONDS.
+  - name: end_time
+    type: integer(int64)
+    detail: End of the requested history window, Unix timestamp in NANOSECONDS.
+  - name: strategy_type
+    type: string
+    detail: 'Strategy type filter, e.g. DeltaNeutral. Explicitly NOT declared as a fixed enum.'
+timestamps:
+  precision: nanoseconds
+  hazard: >-
+    time / update_time are 19-digit nanosecond Unix timestamps and exceed JavaScript's safe-integer
+    range. The provider documents the mitigation: JavaScript clients should read the sibling
+    time_str / update_time_str fields, which are UTC RFC 3339 strings.
+  rfc3339_fields: [time_str, update_time_str]
+  docs: https://1token.tech/api/1ndex/v1/README.md
+error_envelope:
+  format: custom-json
+  shape: '{ "code": "<string>", "message": "<string>" }'
+  problem_json: false
+  detail: >-
+    Not RFC 9457. A stable top-level two-field JSON object; both fields are required in the schema.
+  observed:
+    url: https://1ndex.1token.tech/api/v1/public/strategy-overview?start_time=abc
+    http_status: 400
+    body: '{"code":"invalid_parameter","message":"Invalid parameter: invalid start_time: expected nanosecond Unix timestamp"}'
+  see: errors/1token-problem-types.yml
+idempotency:
+  coverage: na
+  supported: false
+  detail: >-
+    Not applicable — the public surface has no write operations. The only documented operation is a
+    GET, which is idempotent by HTTP semantics. NOTE: the live CORS preflight advertises
+    `Idempotency-Key` in access-control-allow-headers, but that is a shared gateway CORS
+    configuration, not a documented idempotency contract for this endpoint; no Idempotency-Key
+    header is described in the spec or the docs, so NO `Idempotency` pointer is emitted.
+  scope: []
+dry_run_mode:
+  supported: na
+  detail: No write surface to rehearse.
+reversibility:
+  applicable: false
+  grade: na
+  detail: >-
+    Read-only API. There is no operation whose effect could be reversed, so cancel/refund/void/undo
+    windows do not exist and none are asserted. If 1Token ever publishes a CAM write interface this
+    block must be re-derived against it.
+  write_surfaces: []
+request_tracing:
+  request_id_header: null
+  detail: >-
+    No request-id or correlation header is documented, and none was returned on the live probe. The
+    only tracing headers observed are Cloudflare edge headers (cf-ray, report-to), which are
+    infrastructure, not a provider contract.
+rate_limit_signaling:
+  headers: []
+  detail: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After headers observed on a live 200. The docs state the
+    endpoint is best-effort with no advertised request quota and ask callers to keep frequency low
+    and cache. See rate-limits/1token-rate-limits.yml.
+caching:
+  detail: >-
+    No Cache-Control or ETag on the live response (cf-cache-status DYNAMIC). The docs nonetheless
+    instruct callers to cache results client-side.
+cors:
+  allow_origin: '*'
+  allow_methods: [GET, POST, PUT, PATCH, DELETE, OPTIONS]
+  note: >-
+    Wildcard CORS with credentials allowed on the gateway; only GET is actually exposed publicly.
+content_type: application/json
+cross_links:
+  authentication: authentication/1token-authentication.yml
+  errors: errors/1token-problem-types.yml
+  lifecycle: lifecycle/1token-lifecycle.yml
+  rate_limits: rate-limits/1token-rate-limits.yml

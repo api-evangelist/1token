@@ -1,0 +1,44 @@
+generated: '2026-09-05'
+method: derived
+source: openapi/1token-1ndex-openapi.yml
+enriched_from: https://1token.tech/api/1ndex/v1/README.md
+format: custom-json
+format_note: >-
+  NOT RFC 9457. Responses are application/json, not application/problem+json. The envelope is a
+  stable two-field object with both fields required by the schema: code (a machine-readable string)
+  and message (human-readable detail).
+envelope:
+  media_type: application/json
+  fields:
+  - name: code
+    type: string
+    required: true
+    detail: Stable machine-readable error identifier.
+  - name: message
+    type: string
+    required: true
+    detail: Human-readable description, may quote the offending parameter.
+problems:
+- status: 400
+  code: invalid_parameter
+  title: A query parameter is invalid
+  detail: >-
+    Returned when start_time or end_time is not a nanosecond Unix timestamp, or a filter value is
+    otherwise unparseable.
+  remediation: >-
+    Send start_time/end_time as 19-digit integer nanosecond Unix timestamps (int64, minimum 1).
+    strategy_type is a free string and is not validated against a fixed enum.
+  source_operation: openapi/1token-1ndex-openapi.yml#getPublicStrategyOverview
+  observed:
+    url: https://1ndex.1token.tech/api/v1/public/strategy-overview?start_time=abc
+    http_status: 400
+    body: '{"code":"invalid_parameter","message":"Invalid parameter: invalid start_time: expected nanosecond Unix timestamp"}'
+    checked: '2026-09-05'
+gaps:
+- >-
+  The spec declares only 200 and 400 for the single operation. No 404, 429, 5xx or timeout response
+  is described, and the docs state the endpoint has no availability SLA — so an agent must handle
+  transport failure and non-2xx statuses that the contract does not enumerate.
+- >-
+  No full code registry is published; invalid_parameter is the only code named anywhere in the
+  contract or the documentation.

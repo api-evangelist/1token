@@ -1,0 +1,45 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the 1Token 1ndex Public Strategy Overview API
+  version: 1.0.0
+extends: openapi/1token-1ndex-openapi.yml
+x-provenance:
+  generated: '2026-09-05'
+  method: generated
+  source: >-
+    API Evangelist enrichment pass. Captures our added tags, agentic-access classification and
+    cross-links WITHOUT mutating the provider's verbatim document at
+    openapi/_original/1token-1ndex-openapi.json.
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: 1token
+    x-apievangelist-artifacts:
+      authentication: authentication/1token-authentication.yml
+      conventions: conventions/1token-conventions.yml
+      errors: errors/1token-problem-types.yml
+      data-model: data-model/1token-data-model.yml
+      lifecycle: lifecycle/1token-lifecycle.yml
+      rate-limits: rate-limits/1token-rate-limits.yml
+    x-api-catalog: https://1token.tech/.well-known/api-catalog
+- target: $.paths['/public/strategy-overview'].get
+  update:
+    tags:
+    - Strategy Overview
+    x-agentic-access:
+      action-class: connected
+      consequence: read
+      subject: optional
+      token:
+        max-ttl: 3600
+      audit: none
+- target: $.paths['/public/strategy-overview'].get.responses['400']
+  update:
+    x-error-catalog: errors/1token-problem-types.yml
+- target: $
+  update:
+    tags:
+    - name: Strategy Overview
+      description: >-
+        Aggregate 1ndex strategy category statistics and historical performance time series.
+        Anonymous and read-only.

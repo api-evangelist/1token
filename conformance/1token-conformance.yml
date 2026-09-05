@@ -1,0 +1,77 @@
+generated: '2026-09-05'
+method: searched
+source: https://1token.tech/trust-center
+derived_from: openapi/1token-1ndex-openapi.yml
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: 'openapi/_original/1token-1ndex-openapi.json declares openapi: 3.1.1'
+- id: rfc9727-api-catalog
+  conforms: true
+  evidence: >-
+    https://1token.tech/.well-known/api-catalog returns 200 with content-type
+    application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727" and a linkset[]
+    binding the 1ndex endpoint anchor to its service-desc (OpenAPI) and service-doc (markdown).
+- id: rfc8615-well-known
+  conforms: true
+  evidence: API Catalog served from the /.well-known/ registry path on 1token.tech and www.1token.tech.
+- id: rfc3339-timestamps
+  conforms: true
+  evidence: >-
+    components.schemas.Rfc3339Timestamp (format date-time) is published alongside every nanosecond
+    integer timestamp specifically so clients can read exact time as RFC 3339.
+- id: llmstxt
+  conforms: true
+  evidence: https://1token.tech/llms.txt returns 200 text/plain, llms.txt format, dated 2026-09-01.
+- id: content-signal
+  conforms: true
+  evidence: >-
+    https://1token.tech/robots.txt publishes "Content-Signal: ai-train=yes, search=yes,
+    ai-input=yes" — an explicit machine-readable AI usage preference on the public marketing surface.
+- id: soc2-type-ii
+  conforms: true
+  evidence: >-
+    https://1token.tech/trust-center states SOC 2 Type II certification, Trust Service Criteria
+    Security / Availability / Confidentiality, audited annually.
+- id: tls13
+  conforms: true
+  evidence: >-
+    Trust Center states TLS 1.3 in transit and AES-256 at rest; probe confirmed TLSv1.3 on
+    1token.tech and 1ndex.1token.tech (security/1token-domain-security.yml).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    Errors are application/json with a custom {code, message} envelope, not
+    application/problem+json.
+- id: oauth2
+  conforms: false
+  evidence: No securitySchemes declared; the public API is anonymous.
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration 404 on every host.
+- id: asyncapi
+  conforms: false
+  evidence: >-
+    No public AsyncAPI or webhook catalog. 1Token markets real-time WebSocket feeds for CAM, but
+    that interface is documented only behind the customer login at /cam-docs.
+- id: a2a
+  conforms: false
+  evidence: No agent card at /.well-known/agent-card.json or /.well-known/agent.json on any host.
+- id: mcp
+  conforms: false
+  evidence: No hosted or packaged MCP server found.
+domain_standards:
+  searched: true
+  found: []
+  detail: >-
+    No domain standard is declared by the contract. The public surface is one aggregate performance
+    endpoint with 1Token's own field names (accum_nav, accum_pnl, sharpe_ratio, max_drawdown); it
+    does not carry a GIPS, FIX, FinDatEx, ISO 20022 or Open Funds message shape, and no such claim
+    appears in the OpenAPI or the documentation. Reward-only dimension — nothing invented to fill it.
+compliance_program:
+  published: true
+  url: https://1token.tech/trust-center
+  certifications: [SOC 2 Type II]
+  criteria: [Security, Availability, Confidentiality]
+  see: security/1token-trust-center.yml
+checked: '2026-09-05'

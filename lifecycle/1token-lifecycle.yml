@@ -1,0 +1,46 @@
+generated: '2026-09-05'
+method: searched
+source: https://1token.tech/api/1ndex/v1/README.md
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://1token.tech/api/1ndex/v1/README.md
+  evidence: 'servers[0].url https://1ndex.1token.tech/api/v1'
+deprecation:
+  policy_url: null
+  sunset_header: false
+  detail: >-
+    No deprecation or sunset policy is published for the public 1ndex API, and no RFC 8594
+    Deprecation/Sunset header was observed on a live response. NO Deprecation pointer emitted.
+sla:
+  url: null
+  uptime_target: null
+  detail: >-
+    Explicitly disclaimed. The published documentation states the endpoint "is provided on a
+    best-effort basis without an availability SLA or an advertised request quota." Recording that
+    is the finding: it is a stated support boundary, not an omission.
+  quote_source: https://1token.tech/api/1ndex/v1/README.md
+support_boundary:
+  covers: aggregate 1ndex strategy overview endpoint only
+  excludes:
+  - customer-specific data
+  - write operations
+  - CAM product interfaces
+  - third-party APIs consumed by 1Token
+  source: https://1token.tech/api/1ndex/v1/README.md
+status_page:
+  url: null
+  detail: >-
+    No status page found. Probed https://1token.tech/status (404) and searched the site navigation
+    and footer; 1Token publishes no uptime or incident page for either CAM or 1ndex. NO StatusPage
+    pointer emitted.
+changelog:
+  url: https://1token.tech/insights/changelog
+  mirror: https://blog.1token.tech/tag/crypto-system-update/
+  detail: >-
+    A dated CAM product changelog exists but is stale — the most recent entry on the public tag
+    page is 26 Dec 2023. It covers the CAM platform, not the public 1ndex API, for which no
+    changelog is published.
+  see: changelog/1token-changelog.yml
+deprecated_operations: []
+checked: '2026-09-05'

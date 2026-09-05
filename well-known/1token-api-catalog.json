@@ -1,0 +1,19 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://1ndex.1token.tech/api/v1/public/strategy-overview",
+      "service-desc": [
+        {
+          "href": "https://1token.tech/api/1ndex/v1/openapi.json",
+          "type": "application/openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://1token.tech/api/1ndex/v1/README.md",
+          "type": "text/markdown"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+generated: '2026-09-05'
+method: searched
+source: https://1token.tech/api/1ndex/v1/README.md
+limit_count: 0
+rate_limits: []
+headers: []
+exhaustion_status: null
+detail: >-
+  1Token publishes NO numeric rate limit for its public 1ndex API. The documentation states the
+  endpoint "is provided on a best-effort basis without an availability SLA or an advertised request
+  quota" and asks callers to "keep request frequency low, cache results where appropriate, and use
+  the optional filters to avoid repeatedly downloading the full response." That is a documented
+  fair-use expectation, not a published limit, so limit_count is an honest zero.
+probe:
+  url: https://1ndex.1token.tech/api/v1/public/strategy-overview?strategy_type=DeltaNeutral
+  http_status: 200
+  checked: '2026-09-05'
+  observed_headers:
+    rate_limit_headers: []
+    note: >-
+      No X-RateLimit-*, RateLimit-* or Retry-After header on a live unauthenticated 200. Response
+      headers were content-type, CORS (access-control-allow-*), Cloudflare edge headers (server,
+      cf-ray, cf-cache-status, nel, report-to) and vary only.
+agent_guidance: >-
+  An agent cannot compute a safe call budget from anything the provider publishes. Treat the
+  endpoint as low-frequency: cache the aggregate document, bound history with start_time/end_time,
+  and back off on any non-200 since no 429 shape is documented.

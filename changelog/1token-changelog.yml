@@ -1,0 +1,66 @@
+generated: '2026-09-05'
+method: searched
+source: https://blog.1token.tech/tag/crypto-system-update/
+canonical: https://1token.tech/insights/changelog
+scheme: product-version
+current_version: 'CAM 2.143'
+covers: 1Token CAM platform
+api_changelog: null
+api_changelog_note: >-
+  No changelog exists for the public 1ndex Strategy Overview API. The dated changelog below tracks
+  the CAM product, which is documented behind a customer login.
+staleness:
+  latest_entry_date: '2023-12-26'
+  detail: >-
+    The public changelog is stale. The most recent post on the tag page is dated 26 Dec 2023 and
+    reads as a roll-up of versions 2.138-2.143; the individually versioned entries stop at CAM
+    2.117 in July 2023. Product marketing pages have been updated as recently as 2026, so the
+    changelog is not tracking current releases.
+entries:
+- version: 'CAM 2.138-2.143'
+  date: '2023-12-26'
+  title: "1Token CAM Updates: What's New in Versions 2.138-2.143 for Crypto Fund Middle Office, Crypto Fund Admin & Auditors"
+  url: https://blog.1token.tech/latest-updates-for-middle-office-fund-administrators-auditors/
+  breaking: false
+- version: 'CAM 2.117'
+  date: '2023-07-04'
+  url: https://blog.1token.tech/cam-2-117-update/
+  breaking: false
+  highlights:
+  - Included Debank into CAM Index reference sources
+  - 'PMS: Ceffu Mirror operation records'
+  - 'PMS: Kucoin — merge spot and futures assets'
+- version: 'CAM 2.116'
+  date: '2023-06-27'
+  url: https://blog.1token.tech/cam-2-116-update/
+  breaking: false
+  highlights:
+  - Added BRC-20 and ORDI tokens
+  - Upgraded the overall CAM lending module
+  - 'PMS: BINANCE PM1.5 account (read asset)'
+  - 'PMS: position PnL for multiple accounts'
+- version: 'CAM 2.115'
+  date: '2023-06-20'
+  url: https://blog.1token.tech/cam-2-115-update/
+  breaking: false
+  highlights:
+  - 'RMS: new risk indicator — LTV of BINANCE VIP loan account'
+  - 'RMS: real-time risk monitoring dashboard chart for the same'
+  - 'PMS: PnL support for OKX funding account'
+- version: 'CAM 2.114'
+  date: '2023-06-13'
+  breaking: false
+  highlights:
+  - 'Trading venues: Deribit spot accounts (transaction and trading records)'
+  - 'Trading venues: Binance cross margin account (asset & position)'
+  - 'DeFi: Compound V3 (ETH & Polygon)'
+  - 'PMS: NAV share, URL link for viewing/exporting the NAV table'
+- version: 'CAM 2.113'
+  date: '2023-06-05'
+  breaking: false
+  highlights:
+  - 'DeFi: new chains BNB Beacon, Cardano, Elrond, zkSync Era (on-chain records)'
+  - 'DeFi: new protocol Hope'
+  - 'Data analysis: assets & positions, customized exporting'
+window: recent public entries only — the tag page is a single page (Page 1 of 1)
+checked: '2026-09-05'

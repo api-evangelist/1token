@@ -1,0 +1,35 @@
+generated: '2026-09-05'
+method: derived
+source: openapi/1token-1ndex-openapi.yml
+status: candidate
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: none
+  verified: searched
+search_note: >-
+  No MCP server ships for 1Token. Searched the provider site, llms.txt (which enumerates the public
+  developer surface and names only the API Catalog, the 1ndex README and the OpenAPI), the
+  1token-tech GitHub organisation (5 public repos, all CI/deployment infrastructure), npm and PyPI.
+  No hosted /mcp endpoint is advertised and no endpoint URL was guessed or probed blind. The tool
+  below is a CANDIDATE derived from the single published OpenAPI operation; nobody ships a server.
+server:
+  name: 1token-1ndex
+  transport: null
+  url: null
+tools:
+- name: get_public_strategy_overview
+  description: >-
+    Get the aggregate 1ndex strategy overview — platform statistics, per-strategy-type performance
+    summaries, and historical time-series points. Anonymous, read-only.
+  source_operation: openapi/1token-1ndex-openapi.yml#getPublicStrategyOverview
+  input_schema_source: >-
+    Inherits the operation's parameters verbatim: start_time (int64 nanosecond Unix timestamp,
+    optional), end_time (int64 nanosecond Unix timestamp, optional), strategy_type (string,
+    optional, no fixed enum).
+  read_only: true
+coverage:
+  rest_operations: 1
+  tools_derived: 1

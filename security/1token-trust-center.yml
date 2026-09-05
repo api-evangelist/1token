@@ -1,0 +1,44 @@
+generated: '2026-09-05'
+method: searched
+probe: true
+probe_note: >-
+  0-working/probe-security-programs.py returned trust=none because it checks trust.<domain>,
+  security.<domain>, /trust, /security and /compliance; 1Token publishes at /trust-center, which is
+  outside that path list. The page below was fetched and read by hand.
+url: https://1token.tech/trust-center
+machine_readable_summary: https://1token.tech/trust.md
+certifications:
+- name: SOC 2 Type II
+  criteria: [Security, Availability, Confidentiality]
+  audit_frequency: annual
+  attestation_available: false
+  note: >-
+    The page asserts certification and names the Trust Service Criteria; it does not publish the
+    report, the audit period, or an auditor name, and there is no gated trust portal to request it.
+controls:
+  testing:
+  - quarterly penetration testing
+  - third-party security assessments
+  - vulnerability scanning and remediation
+  - API security testing
+  - infrastructure security reviews
+  data_protection:
+  - TLS 1.3 in transit
+  - AES-256 encryption at rest
+  - client data isolation
+  - zero data redistribution policy
+  - secure API key management
+  workflow:
+  - role-based access control (RBAC)
+  - multi-factor authentication (MFA)
+  - audit logs and activity monitoring
+  - secure onboarding processes
+  - read-only API integration
+evidence:
+- source: https://1token.tech/trust-center
+  http_status: 200
+  keywords: [soc 2 type ii, trust center, penetration testing, aes-256, tls 1.3, rbac, mfa]
+- source: https://1token.tech/trust.md
+  http_status: 200
+  keywords: [soc 2 type ii, security, availability, confidentiality]
+checked: '2026-09-05'

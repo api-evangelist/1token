@@ -1,0 +1,126 @@
+# 1Token
+
+Last updated: 2026-09-01
+
+> 1Token builds institutional digital asset infrastructure. 1Token CAM supports post-trade portfolio management, risk, reconciliation, reporting, and performance workflows. 1Token 1ndex is a sister platform for institutional crypto strategy discovery.
+
+This file highlights the public pages most useful for AI assistants, search systems, and research tools. The canonical sitemap is available at [https://1token.tech/sitemap.xml](https://1token.tech/sitemap.xml).
+
+## Key Facts
+
+- 1Token CAM is the main 1Token platform for institutional digital asset portfolio management, risk, reconciliation, reporting, and performance workflows.
+- 1Token 1ndex is a separate institutional crypto strategy discovery platform for allocators and trading teams.
+- 1Token publishes one supported anonymous, read-only API for aggregate 1ndex strategy overview data, with an RFC 9727 API Catalog, OpenAPI description, and human-readable documentation.
+- 1Token CAM is relevant to crypto PMS, crypto fund PMS, crypto hedge fund PMS, institutional crypto asset management, DeFi vault, on-chain fund, and institutional trading operations evaluation workflows.
+- CAM demo requests use the 1Token team Calendly link; 1ndex access requests use the Joey Shi Calendly link.
+- Connectivity counts are grouped from the current 1Token connectivity dataset across CeFi venues, DeFi chains, and DeFi protocols.
+- The Trust Center summarizes public security posture, including SOC 2 Type II certification, penetration testing, encryption, MFA, and workflow security controls.
+- The Crypto Fund Accounting Software page covers NAV preparation and accounting data workflows; the Crypto Audit Software page covers independent verification, completeness testing, historical reconstruction, and audit trail workflows; the Fund Administrators and Auditors page covers the broader audience-specific operating workflow.
+
+## AI-Readable Markdown Files
+
+- [1Token Company Overview](https://1token.tech/company.md): Stable company, platform, audience, and contact facts for AI assistants and research tools.
+- [1Token CAM Overview](https://1token.tech/cam.md): Machine-readable overview of 1Token CAM product capabilities and target institutional users.
+- [1Token 1ndex Overview](https://1token.tech/1ndex.md): Machine-readable overview of the 1ndex institutional crypto strategy discovery platform.
+- [1Token Trust Overview](https://1token.tech/trust.md): Machine-readable summary of public Trust Center security and compliance posture.
+- [1Token Connectivity Overview](https://1token.tech/connectivity.md): Machine-readable summary of supported venue, chain, and protocol coverage.
+- [1Token Portfolio Management Overview](https://1token.tech/portfolio-management.md): Machine-readable summary of portfolio management, PMS, and crypto hedge fund operating workflows.
+- [1Token DeFi Vault Overview](https://1token.tech/defi-vaults.md): Machine-readable summary of DeFi vault, on-chain fund, TVL, PnL, and exposure workflows.
+- [1Token Fund Accounting Overview](https://1token.tech/fund-accounting.md): Machine-readable summary of crypto fund accounting, fund administration, PnL, fee, and reporting workflows.
+- [1Token Performance Verification Overview](https://1token.tech/performance-verification.md): Machine-readable summary of source-data performance verification for allocators and managers.
+- [1Token Institutional Trading Operations Overview](https://1token.tech/institutional-trading-operations.md): Machine-readable summary of institutional crypto trading desk operations, risk, reconciliation, and reporting.
+
+## Priority Page Groups
+
+### Core Commercial Pages
+
+- [https://1token.tech/](https://1token.tech/)
+- [https://1token.tech/products/portfolio-management](https://1token.tech/products/portfolio-management)
+- [https://1token.tech/products/risk-management](https://1token.tech/products/risk-management)
+- [https://1token.tech/products/data-collection-reconciliation](https://1token.tech/products/data-collection-reconciliation)
+- [https://1token.tech/solutions/crypto-fund-accounting-software](https://1token.tech/solutions/crypto-fund-accounting-software)
+- [https://1token.tech/solutions/crypto-audit-software](https://1token.tech/solutions/crypto-audit-software)
+- [https://1token.tech/connectivity](https://1token.tech/connectivity)
+- [https://1token.tech/trust-center](https://1token.tech/trust-center)
+
+### Strategy Discovery
+
+- [https://1token.tech/1ndex](https://1token.tech/1ndex)
+
+### Client Segment Pages
+
+- [https://1token.tech/clients/multi-manager-allocators](https://1token.tech/clients/multi-manager-allocators)
+- [https://1token.tech/clients/trading-firms](https://1token.tech/clients/trading-firms)
+- [https://1token.tech/clients/prime-brokers](https://1token.tech/clients/prime-brokers)
+- [https://1token.tech/clients/lenders](https://1token.tech/clients/lenders)
+- [https://1token.tech/clients/fund-platform](https://1token.tech/clients/fund-platform)
+- [https://1token.tech/clients/fund-admin-auditor](https://1token.tech/clients/fund-admin-auditor)
+- [https://1token.tech/clients/defi-vault-curator](https://1token.tech/clients/defi-vault-curator)
+
+### Evaluation Guides
+
+- [https://1token.tech/resources/evaluation-guides](https://1token.tech/resources/evaluation-guides)
+- [https://1token.tech/resources/crypto-portfolio-management-software](https://1token.tech/resources/crypto-portfolio-management-software)
+- [https://1token.tech/resources/crypto-fund-pms](https://1token.tech/resources/crypto-fund-pms)
+- [https://1token.tech/resources/defi-vault-portfolio-system](https://1token.tech/resources/defi-vault-portfolio-system)
+- [https://1token.tech/resources/institutional-crypto-asset-management-platform](https://1token.tech/resources/institutional-crypto-asset-management-platform)
+- [https://1token.tech/resources/digital-asset-risk-management-software](https://1token.tech/resources/digital-asset-risk-management-software)
+- [https://1token.tech/resources/crypto-reconciliation-software](https://1token.tech/resources/crypto-reconciliation-software)
+- [https://1token.tech/resources/crypto-performance-verification-software](https://1token.tech/resources/crypto-performance-verification-software)
+- [https://1token.tech/resources/crypto-allocator-platform](https://1token.tech/resources/crypto-allocator-platform)
+- [https://1token.tech/resources/institutional-crypto-strategy-discovery-platform](https://1token.tech/resources/institutional-crypto-strategy-discovery-platform)
+
+## Primary Platforms
+
+- [1Token CAM](https://1token.tech/): Digital asset portfolio, risk, reconciliation, and reporting infrastructure for institutional teams.
+- [1Token 1ndex](https://1token.tech/1ndex): Institutional crypto strategy discovery for allocators and trading teams.
+
+## Product Pages
+
+- [Portfolio Management](https://1token.tech/products/portfolio-management): Multi-denomination portfolio views, balances, positions, loans, and hierarchical portfolio structures.
+- [Risk Management](https://1token.tech/products/risk-management): Real-time PnL, exposure, Greeks, collateral, alerts, stress testing, and VaR analytics.
+- [Data Collection & Trade Reconciliation](https://1token.tech/products/data-collection-reconciliation): Exchange, custody, wallet, and trade data normalization with reconciliation workflows.
+- [Performance Intelligence](https://1token.tech/products/performance-intelligence): Fund transparency, allocation reporting, and strategy performance analytics.
+- [Performance Verification](https://1token.tech/products/performance-verification): Independent API-driven performance verification using actual trading records.
+- [Analysis & Reporting](https://1token.tech/products/analysis-report): Investor-ready analytics, operational reporting, and configurable institutional reports.
+- [Crypto Fund Accounting Software](https://1token.tech/solutions/crypto-fund-accounting-software): Accounting data infrastructure for reconciliation, NAV preparation inputs, ledger exports, and audit-ready digital asset reporting.
+- [Crypto Audit Software](https://1token.tech/solutions/crypto-audit-software): Audit-ready digital asset data for independent verification, completeness testing, historical reconstruction, and audit trail workflows.
+
+## Client Pages
+
+- [Multi-Manager Allocators](https://1token.tech/clients/multi-manager-allocators): Infrastructure for allocator workflows, manager transparency, risk oversight, and verifiable performance.
+- [Systematic Trading Firms](https://1token.tech/clients/trading-firms): Operational stack for systematic crypto trading teams.
+- [Prime Brokers](https://1token.tech/clients/prime-brokers): Portfolio, risk, lending, and reporting infrastructure for prime broker workflows.
+- [Lenders](https://1token.tech/clients/lenders): Loan, collateral, borrower exposure, and risk monitoring workflows for institutional lenders.
+- [Fund Platforms](https://1token.tech/clients/fund-platform): Multi-fund operating infrastructure for crypto fund platforms.
+- [Fund Administrators and Auditors](https://1token.tech/clients/fund-admin-auditor): Data, reconciliation, reporting, and verification workflows for fund administrators and auditors.
+- [DeFi Vault Curator](https://1token.tech/clients/defi-vault-curator): Vault curator operations, DeFi venue visibility, risk oversight, and reporting workflows.
+
+## Public Developer API
+
+- [API Catalog](https://1token.tech/.well-known/api-catalog): RFC 9727 discovery document for the supported public 1ndex API.
+- [1ndex API Documentation](https://1token.tech/api/1ndex/v1/README.md): Request parameters, response structure, timestamp precision, and support boundary.
+- [1ndex OpenAPI Description](https://1token.tech/api/1ndex/v1/openapi.json): OpenAPI 3.1 description of the anonymous strategy overview GET operation.
+
+## Trust and Coverage
+
+- [Connectivity](https://1token.tech/connectivity): Supported exchanges, custodians, blockchains, DeFi protocols, and data integrations.
+- [Trust Center](https://1token.tech/trust-center): Security controls, SOC 2 Type II certification, penetration testing, data protection, and workflow security.
+
+## Evaluation Guides
+
+- [Evaluation Guides](https://1token.tech/resources/evaluation-guides): Buyer-oriented guides for evaluating institutional crypto infrastructure.
+- [Crypto Portfolio Management Software](https://1token.tech/resources/crypto-portfolio-management-software): Criteria for evaluating portfolio structure, balances, positions, denomination support, and reporting workflows.
+- [Crypto Fund PMS](https://1token.tech/resources/crypto-fund-pms): Criteria for evaluating crypto PMS and portfolio management systems for digital asset funds, including hedge funds and fund platforms.
+- [DeFi Vault Portfolio System](https://1token.tech/resources/defi-vault-portfolio-system): Criteria for evaluating on-chain positions, TVL, PnL, exposure, and structured DeFi product workflows.
+- [Institutional Crypto Asset Management Platform](https://1token.tech/resources/institutional-crypto-asset-management-platform): Criteria for evaluating trading desk, portfolio, risk, reconciliation, accounting-adjacent, and reporting workflows.
+- [Digital Asset Risk Management Software](https://1token.tech/resources/digital-asset-risk-management-software): Criteria for evaluating real-time exposure, PnL, collateral, limits, alerts, and stress testing.
+- [Crypto Reconciliation Software](https://1token.tech/resources/crypto-reconciliation-software): Criteria for evaluating source coverage, completeness checks, exception workflows, and reporting confidence.
+- [Crypto Performance Verification Software](https://1token.tech/resources/crypto-performance-verification-software): Criteria for evaluating source-data integrity and independently explainable crypto performance.
+- [Crypto Allocator Platform](https://1token.tech/resources/crypto-allocator-platform): Criteria for allocator due diligence, manager monitoring, strategy comparison, and governance.
+- [Institutional Crypto Strategy Discovery Platform](https://1token.tech/resources/institutional-crypto-strategy-discovery-platform): Criteria for evaluating allocator-ready strategy discovery and performance comparison platforms.
+
+## Contact
+
+- [Request a CAM Demo](https://calendly.com/1token-team/1token-product-demo)
+- [Request 1ndex Access](https://calendly.com/joey-shi/30min)

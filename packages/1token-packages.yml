@@ -1,0 +1,57 @@
+generated: '2026-09-05'
+method: searched
+source: registry metadata endpoints + provider surface
+summary:
+  official: 1
+  official_current: 0
+  detail: >-
+    1Token ships one first-party client library and it is abandoned. Nothing on the current public
+    surface is wrapped by an SDK: the live 1ndex API is a single anonymous GET with no client
+    library, and the only published package wraps the retired OneToken Trade System.
+packages:
+- language: python
+  registry: pypi
+  name: onetoken
+  url: https://pypi.org/project/onetoken/
+  install: pip install onetoken
+  official: true
+  version: 0.2.210201.1
+  published: '2021-02-01'
+  summary: OneToken Trade System Python SDK
+  source_repo: https://github.com/1token-trade/onetoken-py-sdk
+  source_repo_status: 404
+  wraps: >-
+    The legacy OneToken Trade System API (1token.trade), NOT the current 1ndex public API and NOT
+    1Token CAM.
+  official_basis: >-
+    PyPI metadata author is "OneToken" and home_page is github.com/1token-trade/onetoken-py-sdk;
+    1token.trade is 1Token's original domain and now redirects to 1token.tech
+    (https://1token.trade/swagger -> https://1token.tech/swagger).
+  note: >-
+    ABANDONMENT SIGNAL. Latest release 0.2.210201.1 was published 2021-02-01 — over five years
+    before this check — and the GitHub repository named as its home page returns 404, as does the
+    whole 1token-trade organisation. A consumer installing it today gets an unmaintained client for
+    a product surface that no longer has public documentation.
+absent:
+  npm:
+    checked: ['onetoken']
+    result: 404 — no first-party 1Token package on npm
+  other_registries:
+    checked: [maven-central, nuget, rubygems, packagist, crates.io, pkg.go.dev]
+    result: no first-party 1Token client library found
+  current_api:
+    detail: >-
+      No SDK, in any language, for the 1ndex Public Strategy Overview API. The provider documents it
+      with a raw curl example only.
+github:
+  org: https://github.com/1token-tech
+  public_repos: 5
+  detail: >-
+    All five public repos are CI/deployment infrastructure (1token-action, cam-deploy-infra, cf,
+    and two vendored GitHub Actions mirrors). No client library, no spec repo, no docs repo. The
+    older 1token-trade organisation, referenced by the PyPI package, no longer exists.
+sdk_pointer_basis: >-
+  An `SDKs` pointer IS emitted: one genuinely first-party client library exists and is published on
+  PyPI. Its staleness is recorded in `version`/`published` as structured fields so the decay is
+  readable as data rather than buried in prose.
+checked: '2026-09-05'
