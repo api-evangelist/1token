@@ -21,7 +21,7 @@ modified: '2026-09-05'
 tags:
 - Digital Assets
 - Crypto
-- Portfolio Management
+- Portfolio-Management
 - Risk Management
 - Fund Administration
 - Reconciliation
@@ -43,33 +43,16 @@ tags_raw:
 - market-data
 - company
 apis:
-- name: 1Token 1ndex Public Strategy Overview API
-  description: >-
-    Anonymous, read-only REST API returning the aggregate 1ndex strategy overview — current platform
-    statistics (investors, strategies, trading teams), per-strategy-type summaries (accumulated NAV
-    and PnL, period and annualized PnL, Sharpe ratio, max drawdown) and historical time-series points.
-    One GET operation, no authentication, optional start_time/end_time (nanosecond Unix timestamps)
-    and strategy_type filters. Provided best-effort with no SLA and no advertised request quota.
-  image: https://1token.tech/images/og/1token-og.png
+- aid: 1token:1token-public-api
+  name: 1Token Public API
+  description: The Public API from 1Token — 1 operation(s) for public.
   humanURL: https://1token.tech/api/1ndex/v1/README.md
   baseURL: https://1ndex.1token.tech/api/v1
   tags:
-  - Digital Assets
-  - Crypto
-  - Market Data
-  - Institutional Finance
-  - Performance
-  tags_raw:
-  - digital-assets
-  - crypto
-  - market-data
-  - institutional-finance
-  - performance
+  - Public
   properties:
   - type: OpenAPI
-    url: openapi/1token-1ndex-openapi.yml
-  - type: OpenAPI
-    url: openapi/_original/1token-1ndex-openapi.json
+    url: openapi/1token-public-api-openapi.yml
   - type: Documentation
     url: https://1token.tech/api/1ndex/v1/README.md
   - type: APIReference
@@ -82,8 +65,6 @@ apis:
     url: errors/1token-problem-types.yml
   - type: DataModel
     url: data-model/1token-data-model.yml
-  - type: Overlay
-    url: overlays/1token-1ndex-overlay.yaml
   - type: RateLimits
     url: rate-limits/1token-rate-limits.yml
 common:
