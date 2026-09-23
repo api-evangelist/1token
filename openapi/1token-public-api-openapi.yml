@@ -1,21 +1,19 @@
-openapi: 3.1.1
+openapi: 3.2.0
 info:
-  title: 1Token 1ndex Public Strategy Overview API
+  title: 1Token 1ndex Strategy Overview Public API
   version: v1
   description: Anonymous, read-only access to aggregate 1ndex strategy overview data.
-externalDocs:
-  description: Human-readable API documentation
-  url: https://1token.tech/api/1ndex/v1/README.md
 servers:
 - url: https://1ndex.1token.tech/api/v1
 security: []
+tags:
+- name: Public
 paths:
   /public/strategy-overview:
     get:
       operationId: getPublicStrategyOverview
       summary: Get the aggregate public strategy overview
-      description: Returns current platform statistics, aggregate strategy summaries, and historical time-series
-        data.
+      description: Returns current platform statistics, aggregate strategy summaries, and historical time-series data.
       security: []
       parameters:
       - name: start_time
@@ -53,20 +51,35 @@ paths:
               example:
                 code: invalid_parameter
                 message: 'Invalid parameter: invalid start_time: expected nanosecond Unix timestamp'
+      tags:
+      - Public
 components:
   schemas:
-    NanosecondTimestamp:
-      type: integer
-      format: int64
-      minimum: 1
-      description: Unix timestamp in nanoseconds. JavaScript clients should prefer the corresponding RFC
-        3339 string field when exact precision matters.
-      example: 1783987200000000000
-    Rfc3339Timestamp:
-      type: string
-      format: date-time
-      description: UTC RFC 3339 timestamp.
-      example: '2026-07-14T00:00:00.000000Z'
+    StrategyType:
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+        description:
+          type: string
+        update_time:
+          $ref: '#/components/schemas/NanosecondTimestamp'
+        update_time_str:
+          $ref: '#/components/schemas/Rfc3339Timestamp'
+        active_teams:
+          type: integer
+          minimum: 0
+        active_strategies:
+          type: integer
+          minimum: 0
+        summary_data:
+          $ref: '#/components/schemas/StrategySummary'
+        historical_time_series_data:
+          type: array
+          items:
+            $ref: '#/components/schemas/HistoricalPoint'
     PlatformStatistics:
       type: object
       properties:
@@ -108,6 +121,21 @@ components:
           type: number
         itd_ann_pnl:
           type: number
+    Rfc3339Timestamp:
+      type: string
+      format: date-time
+      description: UTC RFC 3339 timestamp.
+      example: '2026-07-14T00:00:00.000000Z'
+    Error:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+        message:
+          type: string
     StrategySummary:
       allOf:
       - $ref: '#/components/schemas/PerformanceMetrics'
@@ -126,31 +154,12 @@ components:
             $ref: '#/components/schemas/NanosecondTimestamp'
           time_str:
             $ref: '#/components/schemas/Rfc3339Timestamp'
-    StrategyType:
-      type: object
-      required:
-      - type
-      properties:
-        type:
-          type: string
-        description:
-          type: string
-        update_time:
-          $ref: '#/components/schemas/NanosecondTimestamp'
-        update_time_str:
-          $ref: '#/components/schemas/Rfc3339Timestamp'
-        active_teams:
-          type: integer
-          minimum: 0
-        active_strategies:
-          type: integer
-          minimum: 0
-        summary_data:
-          $ref: '#/components/schemas/StrategySummary'
-        historical_time_series_data:
-          type: array
-          items:
-            $ref: '#/components/schemas/HistoricalPoint'
+    NanosecondTimestamp:
+      type: integer
+      format: int64
+      minimum: 1
+      description: Unix timestamp in nanoseconds. JavaScript clients should prefer the corresponding RFC 3339 string field when exact precision matters.
+      example: 1783987200000000000
     StrategyOverview:
       type: object
       required:
@@ -166,13 +175,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/StrategyType'
-    Error:
-      type: object
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: string
-        message:
-          type: string
+externalDocs:
+  description: Human-readable API documentation
+  url: https://1token.tech/api/1ndex/v1/README.md

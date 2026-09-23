@@ -1,0 +1,180 @@
+# x-archived-from: 1token-1ndex-openapi.yml
+# x-archived-on: 2026-09-16
+openapi: 3.1.1
+info:
+  title: 1Token 1ndex Public Strategy Overview API
+  version: v1
+  description: Anonymous, read-only access to aggregate 1ndex strategy overview data.
+externalDocs:
+  description: Human-readable API documentation
+  url: https://1token.tech/api/1ndex/v1/README.md
+servers:
+- url: https://1ndex.1token.tech/api/v1
+security: []
+paths:
+  /public/strategy-overview:
+    get:
+      operationId: getPublicStrategyOverview
+      summary: Get the aggregate public strategy overview
+      description: Returns current platform statistics, aggregate strategy summaries, and historical time-series
+        data.
+      security: []
+      parameters:
+      - name: start_time
+        in: query
+        required: false
+        description: Start of the requested history window as a Unix timestamp in nanoseconds.
+        schema:
+          $ref: '#/components/schemas/NanosecondTimestamp'
+      - name: end_time
+        in: query
+        required: false
+        description: End of the requested history window as a Unix timestamp in nanoseconds.
+        schema:
+          $ref: '#/components/schemas/NanosecondTimestamp'
+      - name: strategy_type
+        in: query
+        required: false
+        description: Strategy type filter. Supported values are not declared as a fixed enum.
+        schema:
+          type: string
+          example: DeltaNeutral
+      responses:
+        '200':
+          description: Strategy overview returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StrategyOverview'
+        '400':
+          description: A query parameter is invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: invalid_parameter
+                message: 'Invalid parameter: invalid start_time: expected nanosecond Unix timestamp'
+components:
+  schemas:
+    NanosecondTimestamp:
+      type: integer
+      format: int64
+      minimum: 1
+      description: Unix timestamp in nanoseconds. JavaScript clients should prefer the corresponding RFC
+        3339 string field when exact precision matters.
+      example: 1783987200000000000
+    Rfc3339Timestamp:
+      type: string
+      format: date-time
+      description: UTC RFC 3339 timestamp.
+      example: '2026-07-14T00:00:00.000000Z'
+    PlatformStatistics:
+      type: object
+      properties:
+        total_investors:
+          type: integer
+          minimum: 0
+        total_strategies:
+          type: integer
+          minimum: 0
+        total_trading_teams:
+          type: integer
+          minimum: 0
+    PerformanceMetrics:
+      type: object
+      properties:
+        accum_nav:
+          type: number
+        accum_pnl:
+          type: number
+        24h_pnl:
+          type: number
+        7d_pnl:
+          type: number
+        30d_pnl:
+          type: number
+        mtd_pnl:
+          type: number
+        qtd_pnl:
+          type: number
+        ytd_pnl:
+          type: number
+        7d_ann_pnl:
+          type: number
+        30d_ann_pnl:
+          type: number
+        mtd_ann_pnl:
+          type: number
+        qtd_ann_pnl:
+          type: number
+        itd_ann_pnl:
+          type: number
+    StrategySummary:
+      allOf:
+      - $ref: '#/components/schemas/PerformanceMetrics'
+      - type: object
+        properties:
+          sharpe_ratio:
+            type: number
+          max_drawdown:
+            type: number
+    HistoricalPoint:
+      allOf:
+      - $ref: '#/components/schemas/PerformanceMetrics'
+      - type: object
+        properties:
+          time:
+            $ref: '#/components/schemas/NanosecondTimestamp'
+          time_str:
+            $ref: '#/components/schemas/Rfc3339Timestamp'
+    StrategyType:
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          type: string
+        description:
+          type: string
+        update_time:
+          $ref: '#/components/schemas/NanosecondTimestamp'
+        update_time_str:
+          $ref: '#/components/schemas/Rfc3339Timestamp'
+        active_teams:
+          type: integer
+          minimum: 0
+        active_strategies:
+          type: integer
+          minimum: 0
+        summary_data:
+          $ref: '#/components/schemas/StrategySummary'
+        historical_time_series_data:
+          type: array
+          items:
+            $ref: '#/components/schemas/HistoricalPoint'
+    StrategyOverview:
+      type: object
+      required:
+      - strategy_types
+      properties:
+        update_time:
+          $ref: '#/components/schemas/NanosecondTimestamp'
+        update_time_str:
+          $ref: '#/components/schemas/Rfc3339Timestamp'
+        platform_statistics:
+          $ref: '#/components/schemas/PlatformStatistics'
+        strategy_types:
+          type: array
+          items:
+            $ref: '#/components/schemas/StrategyType'
+    Error:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+        message:
+          type: string

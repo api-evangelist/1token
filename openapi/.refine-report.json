@@ -1,0 +1,24 @@
+{
+  "provider": "1token",
+  "sources": [
+    "_original/1token-1ndex-openapi.json"
+  ],
+  "outputs": [
+    "1token-public-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "1 archived document(s) dropped as subsets of other archived documents",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "1token-1ndex-openapi.json: upgraded openapi 3.1.1 -> OpenAPI 3.2.0",
+    "1token-1ndex-openapi.json: tagged paths GET /public/strategy-overview -> Public",
+    "1token-1ndex-openapi.json: declared missing tag: Public",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "_original/1token-1ndex-openapi.yml: archived document superseded by a larger archived document",
+    "1token-public-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}
