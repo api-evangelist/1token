@@ -21,7 +21,7 @@ modified: '2026-09-05'
 tags:
 - Digital Assets
 - Crypto
-- Portfolio-Management
+- Portfolio Management
 - Risk Management
 - Fund Administration
 - Reconciliation
@@ -42,6 +42,7 @@ tags_raw:
 - defi
 - market-data
 - company
+- Portfolio-Management
 apis:
 - aid: 1token:1token-public-api
   name: 1Token Public API

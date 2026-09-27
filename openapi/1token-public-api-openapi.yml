@@ -55,31 +55,21 @@ paths:
       - Public
 components:
   schemas:
-    StrategyType:
+    StrategyOverview:
       type: object
       required:
-      - type
+      - strategy_types
       properties:
-        type:
-          type: string
-        description:
-          type: string
         update_time:
           $ref: '#/components/schemas/NanosecondTimestamp'
         update_time_str:
           $ref: '#/components/schemas/Rfc3339Timestamp'
-        active_teams:
-          type: integer
-          minimum: 0
-        active_strategies:
-          type: integer
-          minimum: 0
-        summary_data:
-          $ref: '#/components/schemas/StrategySummary'
-        historical_time_series_data:
+        platform_statistics:
+          $ref: '#/components/schemas/PlatformStatistics'
+        strategy_types:
           type: array
           items:
-            $ref: '#/components/schemas/HistoricalPoint'
+            $ref: '#/components/schemas/StrategyType'
     PlatformStatistics:
       type: object
       properties:
@@ -92,6 +82,36 @@ components:
         total_trading_teams:
           type: integer
           minimum: 0
+    Rfc3339Timestamp:
+      type: string
+      format: date-time
+      description: UTC RFC 3339 timestamp.
+      example: '2026-07-14T00:00:00.000000Z'
+    HistoricalPoint:
+      allOf:
+      - $ref: '#/components/schemas/PerformanceMetrics'
+      - type: object
+        properties:
+          time:
+            $ref: '#/components/schemas/NanosecondTimestamp'
+          time_str:
+            $ref: '#/components/schemas/Rfc3339Timestamp'
+    Error:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+    NanosecondTimestamp:
+      type: integer
+      format: int64
+      minimum: 1
+      description: Unix timestamp in nanoseconds. JavaScript clients should prefer the corresponding RFC 3339 string field when exact precision matters.
+      example: 1783987200000000000
     PerformanceMetrics:
       type: object
       properties:
@@ -121,21 +141,6 @@ components:
           type: number
         itd_ann_pnl:
           type: number
-    Rfc3339Timestamp:
-      type: string
-      format: date-time
-      description: UTC RFC 3339 timestamp.
-      example: '2026-07-14T00:00:00.000000Z'
-    Error:
-      type: object
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: string
-        message:
-          type: string
     StrategySummary:
       allOf:
       - $ref: '#/components/schemas/PerformanceMetrics'
@@ -145,36 +150,31 @@ components:
             type: number
           max_drawdown:
             type: number
-    HistoricalPoint:
-      allOf:
-      - $ref: '#/components/schemas/PerformanceMetrics'
-      - type: object
-        properties:
-          time:
-            $ref: '#/components/schemas/NanosecondTimestamp'
-          time_str:
-            $ref: '#/components/schemas/Rfc3339Timestamp'
-    NanosecondTimestamp:
-      type: integer
-      format: int64
-      minimum: 1
-      description: Unix timestamp in nanoseconds. JavaScript clients should prefer the corresponding RFC 3339 string field when exact precision matters.
-      example: 1783987200000000000
-    StrategyOverview:
+    StrategyType:
       type: object
       required:
-      - strategy_types
+      - type
       properties:
+        type:
+          type: string
+        description:
+          type: string
         update_time:
           $ref: '#/components/schemas/NanosecondTimestamp'
         update_time_str:
           $ref: '#/components/schemas/Rfc3339Timestamp'
-        platform_statistics:
-          $ref: '#/components/schemas/PlatformStatistics'
-        strategy_types:
+        active_teams:
+          type: integer
+          minimum: 0
+        active_strategies:
+          type: integer
+          minimum: 0
+        summary_data:
+          $ref: '#/components/schemas/StrategySummary'
+        historical_time_series_data:
           type: array
           items:
-            $ref: '#/components/schemas/StrategyType'
+            $ref: '#/components/schemas/HistoricalPoint'
 externalDocs:
   description: Human-readable API documentation
   url: https://1token.tech/api/1ndex/v1/README.md
