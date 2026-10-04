@@ -55,45 +55,6 @@ paths:
       - Public
 components:
   schemas:
-    StrategyOverview:
-      type: object
-      required:
-      - strategy_types
-      properties:
-        update_time:
-          $ref: '#/components/schemas/NanosecondTimestamp'
-        update_time_str:
-          $ref: '#/components/schemas/Rfc3339Timestamp'
-        platform_statistics:
-          $ref: '#/components/schemas/PlatformStatistics'
-        strategy_types:
-          type: array
-          items:
-            $ref: '#/components/schemas/StrategyType'
-    Error:
-      type: object
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: string
-        message:
-          type: string
-    HistoricalPoint:
-      allOf:
-      - $ref: '#/components/schemas/PerformanceMetrics'
-      - type: object
-        properties:
-          time:
-            $ref: '#/components/schemas/NanosecondTimestamp'
-          time_str:
-            $ref: '#/components/schemas/Rfc3339Timestamp'
-    Rfc3339Timestamp:
-      type: string
-      format: date-time
-      description: UTC RFC 3339 timestamp.
-      example: '2026-07-14T00:00:00.000000Z'
     StrategyType:
       type: object
       required:
@@ -119,15 +80,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HistoricalPoint'
-    StrategySummary:
-      allOf:
-      - $ref: '#/components/schemas/PerformanceMetrics'
-      - type: object
-        properties:
-          sharpe_ratio:
-            type: number
-          max_drawdown:
-            type: number
     NanosecondTimestamp:
       type: integer
       format: int64
@@ -146,6 +98,21 @@ components:
         total_trading_teams:
           type: integer
           minimum: 0
+    StrategyOverview:
+      type: object
+      required:
+      - strategy_types
+      properties:
+        update_time:
+          $ref: '#/components/schemas/NanosecondTimestamp'
+        update_time_str:
+          $ref: '#/components/schemas/Rfc3339Timestamp'
+        platform_statistics:
+          $ref: '#/components/schemas/PlatformStatistics'
+        strategy_types:
+          type: array
+          items:
+            $ref: '#/components/schemas/StrategyType'
     PerformanceMetrics:
       type: object
       properties:
@@ -175,6 +142,39 @@ components:
           type: number
         itd_ann_pnl:
           type: number
+    StrategySummary:
+      allOf:
+      - $ref: '#/components/schemas/PerformanceMetrics'
+      - type: object
+        properties:
+          sharpe_ratio:
+            type: number
+          max_drawdown:
+            type: number
+    HistoricalPoint:
+      allOf:
+      - $ref: '#/components/schemas/PerformanceMetrics'
+      - type: object
+        properties:
+          time:
+            $ref: '#/components/schemas/NanosecondTimestamp'
+          time_str:
+            $ref: '#/components/schemas/Rfc3339Timestamp'
+    Rfc3339Timestamp:
+      type: string
+      format: date-time
+      description: UTC RFC 3339 timestamp.
+      example: '2026-07-14T00:00:00.000000Z'
+    Error:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+        message:
+          type: string
 externalDocs:
   description: Human-readable API documentation
   url: https://1token.tech/api/1ndex/v1/README.md
