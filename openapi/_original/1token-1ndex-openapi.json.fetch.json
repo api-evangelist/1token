@@ -1,0 +1,12 @@
+{
+ "url": "https://1token.tech/api/1ndex/v1/openapi.json",
+ "requested_url": "https://1token.tech/api/1ndex/v1/openapi.json",
+ "status": 200,
+ "content_type": "application/openapi+json",
+ "bytes": 7310,
+ "sha256": "23325808f3c068961318fc1bdc8799311e9ed305d5c0cd1a4ea381d47c517e97",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}
