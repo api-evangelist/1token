@@ -64,43 +64,124 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-1Token builds institutional digital asset infrastructure for crypto funds, fund-of-funds, prime
-brokers, lenders, fund platforms, fund administrators and auditors. Its main platform, **1Token
-CAM**, covers post-trade portfolio management, real-time risk (PnL, exposure, Greeks, collateral,
-alerts, stress testing, VaR), exchange/custody/wallet data collection and trade reconciliation,
-performance intelligence and verification, and investor-ready analysis and reporting across 84 CeFi
-venues, 164 DeFi chains and 4,290 DeFi protocols. A sister platform, **1Token 1ndex**, is an
-institutional crypto strategy discovery service for allocators and trading teams.
+1Token builds institutional digital asset infrastructure for crypto funds, fund-of-funds, prime brokers, lenders, fund platforms, fund administrators and auditors. Its main platform, 1Token CAM, covers post-trade portfolio management, real-time risk (PnL, exposure, Greeks, collateral, alerts, stress testing, VaR), exchange/custody/wallet data collection and trade reconciliation, performance intelligence and verification, and investor-ready analysis and reporting across 84 CeFi venues, 164 DeFi chains and 4,290 DeFi protocols. A sister platform, 1Token 1ndex, is an institutional crypto strategy discovery service for allocators and trading teams. 1Token publishes exactly one supported public API — an anonymous, read-only 1ndex strategy overview endpoint described by an OpenAPI 3.1.1 document and discoverable through an RFC 9727 API Catalog at the domain root; the CAM product interfaces are documented behind a customer login.
 
-## Public API surface
+**Areas:** Digital Assets · Cryptocurrency · Portfolio Management · Risk Management · Fund Administration · Reconciliation · Fund Accounting · Institutional Finance · DeFi · Market Data · Company
 
-1Token publishes exactly one supported public API, and says so plainly in its own `llms.txt`:
+## 1Token on APIs.io
 
-- **1ndex Public Strategy Overview API** — one anonymous, read-only `GET` returning aggregate
-  strategy statistics and historical performance. Described by a first-party **OpenAPI 3.1.1**
-  document and discoverable through an **RFC 9727 API Catalog** at the domain root.
-  - API Catalog — <https://1token.tech/.well-known/api-catalog>
-  - OpenAPI — <https://1token.tech/api/1ndex/v1/openapi.json>
-  - Documentation — <https://1token.tech/api/1ndex/v1/README.md>
-  - Base URL — `https://1ndex.1token.tech/api/v1`
+Everything profiled for 1Token is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/1token/](https://apis.io/providers/1token/)** — or go straight to one of the APIs or properties below.
 
-The CAM product interfaces are documented behind a customer login at `/cam-docs`, and the published
-support boundary excludes customer-specific data, write operations, CAM interfaces and third-party
-APIs 1Token consumes.
+### APIs (1)
 
-## What this profile records
+- [1Token Public API](https://apis.io/apis/1token/1token-public-api/) — The Public API from 1Token — 1 operation(s) for public.
 
-- `openapi/` — the provider's verbatim OpenAPI 3.1.1 plus a YAML rendition
-- `well-known/` — the served RFC 9727 API Catalog, and the recorded absence of everything else
-- `llms/` — the provider's own `llms.txt`, saved verbatim
-- `authentication/`, `conventions/`, `errors/`, `data-model/`, `lifecycle/`, `rate-limits/`,
-  `plans/`, `conformance/`, `security/`, `packages/`, `changelog/`, `skills/`, `overlays/`,
-  `agentic-access/`, `mcp/`
+### Published properties
 
-Notable findings: no published rate limit and no SLA (both explicitly disclaimed by the provider),
-no pricing page, no status page, no A2A agent card, no MCP server, a stale product changelog whose
-last entry is December 2023, and a single first-party Python SDK on PyPI last released 2021-02-01
-whose source repository now returns 404.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- Company site: <https://1token.tech/>
-- Secondary-market listing: <https://equityzen.com/company/1token>
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [1token-1ndex](https://apis.io/servers/1token/1token-1ndex/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [1Token Agentic Access](https://apis.io/agentic-access/1token/1token-agentic-access/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [1Token 1Ndex Overlay](https://apis.io/overlays/1token/1token-1ndex-overlay/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [1Token Authentication](https://apis.io/security/1token/1token-authentication/)
+- [1Token Domain Security](https://apis.io/security/1token/1token-domain-security/)
+- [1Token Trust Center](https://apis.io/security/1token/1token-trust-center/)
+- [1Token Vulnerability Disclosure](https://apis.io/security/1token/1token-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [1Token Plans Pricing](https://apis.io/plans/1token/1token-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [1Token Rate Limits](https://apis.io/rate-limits/1token/1token-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://1token.tech/)
+- [Documentation](https://1token.tech/api/1ndex/v1/README.md)
+- [API reference](https://1token.tech/api/1ndex/v1/README.md)
+- [Support](https://t.me/Crypto1Token)
+- [Changelog](https://1token.tech/insights/changelog)
+- [Blog](https://blog.1token.tech/)
+- [Compliance](https://1token.tech/trust-center)
+- [Trust centre](https://1token.tech/trust-center)
+- [GitHub](https://github.com/1token-tech)
+
+## API Evangelist rating
+
+**Kin Score 40.1** — developing · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 89.3 |
+| Contract quality | 49.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 44.6 |
+| Access clarity | 22.4 |
+
+**Agent readiness 34.0** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 31.5** — Securities & Market Data
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/1token/](https://apis.io/providers/1token/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for 1Token: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/1token/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
