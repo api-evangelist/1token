@@ -98,6 +98,12 @@ OpenAPI overlays, including conversational phrasing for each operation.
 
 - [1Token 1Ndex Overlay](https://apis.io/overlays/1token/1token-1ndex-overlay/)
 
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [1Token API Rules](https://apis.io/rules/1token/1token-rules/)
+
 #### Security (4)
 
 Authentication, trust centre, and vulnerability disclosure.
@@ -119,6 +125,12 @@ Published request limits.
 
 - [1Token Rate Limits](https://apis.io/rate-limits/1token/1token-rate-limits/)
 
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [1Token Finops](https://apis.io/finops/1token/1token-finops/)
+
 ## Where to find this API
 
 Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
@@ -135,18 +147,18 @@ Links to the company's own pages. This repository publishes no copy of their spe
 
 ## API Evangelist rating
 
-**Kin Score 39.6** — developing · rubric 0.25.0 · scored 2026-10-23
+**Kin Score 43.8** — developing · rubric 0.28.1 · scored 2026-11-21
 
 | Facet | Score |
 |---|---|
 | Discoverability | 83.9 |
-| Contract quality | 49.0 |
-| Contract governance | 18.2 |
-| Operational transparency | 13.2 |
+| Contract quality | 54.4 |
+| Contract governance | 31.8 |
+| Operational transparency | 14.3 |
 | Developer ergonomics | 44.6 |
-| Access clarity | 22.4 |
+| Access clarity | 27.7 |
 
-**Agent readiness 34.0** — agent-ready
+**Agent readiness 34.3** — agent-ready
 
 | Agent-readiness dimension | Result |
 |---|---|
@@ -162,7 +174,7 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | Event Surface Described | — |
 | Agent Skills | derived (partial credit) |
 | Well Known Catalog | yes |
-| Consent Identity | — |
+| Consent Identity | signal |
 | Agent Card | — |
 | Dry Run Mode | na |
 | Delegated Identity | — |
@@ -171,6 +183,10 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | Agentic Commerce | — |
 | Pagination Ratio | na |
 | Operation Distinctiveness | na |
+| MCP Tool Quality | na |
+| Onboarding Descriptor | — |
+| Dns Aid Index | na |
+| Markdown Negotiation | na |
 
 **Regulatory alignment 31.5** — Securities & Market Data
 
